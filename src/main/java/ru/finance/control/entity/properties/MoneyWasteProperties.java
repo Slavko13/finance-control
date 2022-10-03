@@ -10,13 +10,18 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Class for money waste properties.
+ *
+ * @author Petrenko Viacheslav
+ */
+
 @Table(name = "user_money_waste_properties")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 public class MoneyWasteProperties extends BaseEntity
 {
-
 
     @Column(name = "rounding_up_the_payment")
     Integer roundingUpPayment;

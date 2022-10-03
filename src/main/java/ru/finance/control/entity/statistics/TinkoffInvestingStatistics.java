@@ -10,6 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Class for control invest account stats.
+ *
+ * @author Petrenko Viacheslav
+ */
+
 
 @Table(name = "user_tinkoff_investing_statistics")
 @Entity

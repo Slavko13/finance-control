@@ -12,6 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.UUID;
 
+/**
+ * Class for system users.
+ *
+ * @author Petrenko Viacheslav
+ */
+
+
 @Entity
 @Table(name = "finance_user")
 @AllArgsConstructor

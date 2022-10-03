@@ -9,6 +9,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Class for investing accounts properties.
+ *
+ * @author Petrenko Viacheslav
+ */
+
+
 @Table(name = "user_investing_properties")
 @Entity
 @AllArgsConstructor
