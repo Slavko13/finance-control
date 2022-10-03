@@ -2,12 +2,11 @@ package ru.finance.control.entity.properties;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import ru.finance.control.entity.general.base.BaseEntity;
+import ru.finance.control.entity.users.FinanceUser;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Class for investing accounts properties.
@@ -22,6 +21,15 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class InvestingProperties extends BaseEntity
 {
+
+    @NonNull
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    FinanceUser user;
+
+    @Column(name = "user_id", updatable = false, insertable = false)
+    Long userId;
+
 
     @Column(name = "tinkoff_api_secret_key")
     String tinkoffApiSecretKey;

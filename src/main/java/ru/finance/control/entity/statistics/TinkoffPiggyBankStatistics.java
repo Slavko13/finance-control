@@ -2,11 +2,11 @@ package ru.finance.control.entity.statistics;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import ru.finance.control.entity.general.base.BaseStatisticSavingEntity;
+import ru.finance.control.entity.users.FinanceUser;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 /**
@@ -22,6 +22,14 @@ import javax.persistence.Table;
 @Entity
 public class TinkoffPiggyBankStatistics extends BaseStatisticSavingEntity
 {
+
+    @NonNull
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    FinanceUser user;
+
+    @Column(name = "user_id", updatable = false, insertable = false)
+    Long userId;
 
     @Column(name = "description")
     Double description;
