@@ -1,9 +1,7 @@
 package ru.finance.control.entity.properties;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import ru.finance.control.entity.general.base.BaseEntity;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 import ru.finance.control.entity.users.FinanceUser;
 
 import javax.persistence.*;
@@ -15,12 +13,19 @@ import javax.persistence.*;
  */
 
 
+@Data
+@FieldDefaults(level= AccessLevel.PRIVATE)
 @Table(name = "user_investing_properties")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class InvestingProperties extends BaseEntity
+public class InvestingProperties
 {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    Long id;
 
     @NonNull
     @ManyToOne

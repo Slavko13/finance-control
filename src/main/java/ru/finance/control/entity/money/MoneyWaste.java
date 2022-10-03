@@ -1,9 +1,7 @@
 package ru.finance.control.entity.money;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import ru.finance.control.entity.general.base.BaseEntity;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 import ru.finance.control.entity.users.FinanceUser;
 import ru.finance.control.enums.money.MoneyWasteType;
 
@@ -16,12 +14,20 @@ import javax.persistence.*;
  */
 
 
+
+@Data
 @Table(name = "money_waste")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class MoneyWaste extends BaseEntity
+@FieldDefaults(level= AccessLevel.PRIVATE)
+public class MoneyWaste
 {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    Long id;
 
     @NonNull
     @ManyToOne

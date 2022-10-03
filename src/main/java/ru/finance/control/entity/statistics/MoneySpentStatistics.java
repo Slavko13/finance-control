@@ -1,20 +1,25 @@
 package ru.finance.control.entity.statistics;
 
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import ru.finance.control.entity.general.base.BaseEntity;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 import ru.finance.control.entity.users.FinanceUser;
 
 import javax.persistence.*;
 
+@Data
+@FieldDefaults(level= AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "user_money_spent_statistics")
-public class MoneySpentStatistics extends BaseEntity
+public class MoneySpentStatistics
 {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    Long id;
 
     @NonNull
     @ManyToOne

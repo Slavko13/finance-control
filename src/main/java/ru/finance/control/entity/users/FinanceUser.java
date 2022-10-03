@@ -2,15 +2,11 @@ package ru.finance.control.entity.users;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import ru.finance.control.entity.general.base.BaseEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.UUID;
+import javax.persistence.*;
 
 /**
  * Class for system users.
@@ -23,8 +19,15 @@ import java.util.UUID;
 @Table(name = "finance_user")
 @AllArgsConstructor
 @NoArgsConstructor
-public class FinanceUser extends BaseEntity
+@Data
+@FieldDefaults(level= AccessLevel.PRIVATE)
+public class FinanceUser
 {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    Long id;
 
     @Column(name = "firstname")
     String firstName;

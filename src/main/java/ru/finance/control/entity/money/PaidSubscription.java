@@ -1,9 +1,7 @@
 package ru.finance.control.entity.money;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import ru.finance.control.entity.general.base.BaseEntity;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 import ru.finance.control.entity.users.FinanceUser;
 
 import javax.persistence.*;
@@ -15,12 +13,19 @@ import java.time.LocalDate;
  * @author Petrenko Viacheslav
  */
 
+@Data
+@FieldDefaults(level= AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user_paid_subscription")
 @Entity
-public class PaidSubscription extends BaseEntity
+public class PaidSubscription
 {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    Long id;
 
     @NonNull
     @ManyToOne
